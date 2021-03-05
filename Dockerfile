@@ -39,3 +39,5 @@ ENV PATH="/opt/NovoGraph/src:${PATH}"
 ENV PERL5LIB="/opt/NovoGraph/scripts:${PERL5LIB}"
 
 WORKDIR /opt/NovoGraph/scripts
+
+# Just add comment to see if building
