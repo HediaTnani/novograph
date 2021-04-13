@@ -24,4 +24,4 @@ jobs:
       run: docker build . --file Dockerfile --tag hediatnani/novograph:$(date +%s)
       
     - name: Docker Push
-      run: docker push hediatnani/novograph
+      run: docker push hediatnani/novograph:$(date +%s)
