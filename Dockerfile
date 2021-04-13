@@ -31,13 +31,13 @@ RUN cpanm Bio::DB::HTS
 
 # install Novograph
 RUN cd /opt \
-    && git clone https://github.com/HediaTnani/NovoGraph.git \
-    && cd NovoGraph/src \
+    && git clone https://github.com/HediaTnani/novograph.git \
+    && cd novograph/src \
     && make all
 
-ENV PATH="/opt/NovoGraph/src:${PATH}"
-ENV PERL5LIB="/opt/NovoGraph/scripts:${PERL5LIB}"
+ENV PATH="/opt/novograph/src:${PATH}"
+ENV PERL5LIB="/opt/novograph/scripts:${PERL5LIB}"
 
-WORKDIR /opt/NovoGraph/scripts
+WORKDIR /opt/novograph/scripts
 
 # Just add comment to see if building
