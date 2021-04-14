@@ -24,9 +24,6 @@ jobs:
     
     - name: Build the Docker image
       run: docker build . -f Dockerfile -t hediatnani/novograph:${GITHUB_SHA:0:7}
-      
-    - name: nominate the tagged image for deployment
-      run: docker tag novograph:${GITHUB_SHA:0:7} novograph:${GITHUB_SHA:0:7}
 
     - name: Docker Push
-      run: docker push hediatnani/novograph
+      run: docker push hediatnani/novograph:${GITHUB_SHA:0:7}
