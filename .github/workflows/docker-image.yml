@@ -24,7 +24,7 @@ jobs:
       run: REV_TAG=$(git log -1 --pretty=format:%h)
     
     - name: Build the Docker image
-      run: docker build . -f Dockerfile -t hediatnani/novograph:$REV_TAG
+      run: docker build . -f Dockerfile -t hediatnani/novograph:"$REV_TAG"
       
     - name: nominate the tagged image for deployment
       run: docker tag novograph:$REV_TAG novograph:$REV_TAG
