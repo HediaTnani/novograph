@@ -20,8 +20,14 @@ jobs:
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
+    - name: Tag Docker image
+      run: REV_TAG=$(git log -1 --pretty=format:%h)
+    
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag hediatnani/novograph
+      run: docker build . --file Dockerfile --tag hediatnani/novograph:$REV_TAG
       
+    - name: nominate the tagged image for deployment
+      run: docker tag novograph:$REV_TAG novograph:$REV_TAG
+
     - name: Docker Push
       run: docker push hediatnani/novograph
